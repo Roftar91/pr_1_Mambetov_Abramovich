@@ -1,7 +1,7 @@
 fun main() {
-    println("Выберите номер задачи (1-6)")
+    do {
+    println("\nВыберите номер задачи (1-6)")
     val choice = readLine()?.toIntOrNull()
-
     when (choice) {
         1 -> task1()
         2 -> task2()
@@ -9,9 +9,13 @@ fun main() {
         4 -> task4()
         5 -> task5()
         6 -> task6()
+        0 -> break
         else -> println("Неверный номер задачи.")
     }
+}while (choice != 0)
+
 }
+
 fun task1() {
     print("Введите исходную строку: ")
     val stringTask1 = readln()

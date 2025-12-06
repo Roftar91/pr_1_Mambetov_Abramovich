@@ -1,7 +1,7 @@
 fun main() {
     do {
     println("\nВыберите номер задачи (1-6)")
-    val choice = readLine()?.toIntOrNull()
+    val choice = readlnOrNull()?.toIntOrNull()
     when (choice) {
         1 -> task1()
         2 -> task2()
@@ -21,12 +21,12 @@ fun task1() {
     val stringTask1 = readln()
     var sum = 1
     print("Исходная строка: ")
-    for (i in 0..stringTask1.length - 1) {
+    for (i in 0 until stringTask1.length - 1) {
         print(stringTask1[i])
     }
     println()
     println("Измененная строка: ")
-    for (i in 1..stringTask1.length - 1) {
+    for (i in 1 until stringTask1.length - 1) {
         if (stringTask1[i] == stringTask1[i - 1]) {
             sum++
         } else {
@@ -48,11 +48,11 @@ fun task1() {
 
 fun task2() {
     print("Введите строку: ")
-    val input = readln() ?: ""
+    val input = readln()
     val chars = input.toCharArray()
     chars.sort()
 
-    var i = 0;
+    var i = 0
     while ( i < chars.size) {
         val current = chars[i]
         var count  = 0
@@ -74,8 +74,8 @@ fun task3() {
 }
 
 fun task4() {
-    print("Введите чтсла в формате: Число1 Число2 Операция (через пробел) ")
-    val input = readLine() ?: return
+    print("Введите числа в формате: Число1 Число2 Операция (через пробел) ")
+    val input = readlnOrNull() ?: return
     val parts = input.split(" ")
     if (parts.size !=3) {
         println("Ошибка")
@@ -109,9 +109,9 @@ fun task4() {
 }
 
 fun task5() { println("Введите целое число n:")
-    val nStr = readLine()
+    val nStr = readlnOrNull()
     println("Введите основание x (целое, больше 1):")
-    val xStr = readLine()
+    val xStr = readlnOrNull()
 
     if (nStr == null || xStr == null || nStr.isEmpty() || xStr.isEmpty()) {
         println("Ошибка: оба числа должны быть введены!")
@@ -131,18 +131,18 @@ fun task5() { println("Введите целое число n:")
             return
         }
 
-        var stepen = 1L
+        var steepen = 1L
         var y = 0
-        while (stepen < n) {
-            stepen *= x
+        while (steepen < n) {
+            steepen *= x
             y++
-            if (stepen > n) {
+            if (steepen > n) {
                 println("Целочисленный показатель не существует")
                 break
             }
         }
 
-        if (stepen == n) {
+        if (steepen == n) {
             println("Показатель степени: $y")
         }
 
@@ -153,10 +153,10 @@ fun task5() { println("Введите целое число n:")
 
 fun task6() {
     println("Введите первую цифру:")
-    val first = readLine()?.toIntOrNull()
+    val first = readlnOrNull()?.toIntOrNull()
 
     println("Введите вторую цифру:")
-    val second = readLine()?.toIntOrNull()
+    val second = readlnOrNull()?.toIntOrNull()
 
     if (first == null || second == null || first !in 0..9 || second !in 0..9) {
         println("Ошибка: введите корректные цифры (от 0 до 9).")
